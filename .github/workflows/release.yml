@@ -45,6 +45,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Repository
+        uses: actions/checkout@v2
+        with:
+          ref: master
+          
       - name: Check diff
         uses: technote-space/get-diff-action@v6
         with:
