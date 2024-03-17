@@ -74,4 +74,4 @@ jobs:
           git add dist
           git commit -m "chore: updated bundle"
           git push origin HEAD --force
-        if: env.GIT_DIFF
+        # if: env.GIT_DIFF
