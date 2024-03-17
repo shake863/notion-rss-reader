@@ -85,6 +85,7 @@ export const addFeedItems = async (
         properties,
         children,
       })
+      console.log(properties.Title)
     } catch (error) {
       console.error(error)
     }
