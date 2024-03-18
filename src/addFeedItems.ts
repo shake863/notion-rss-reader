@@ -12,6 +12,9 @@ export const addFeedItems = async (
 ) => {
   const notion = new Client({ auth: process.env.NOTION_KEY })
   const databaseId = process.env.NOTION_READER_DATABASE_ID || ''
+  console.log('addFeedItems notion_key:', process.env.NOTION_KEY)
+  console.log('addFeedItems databaseId:', databaseId)
+
   console.log('newFeedItems.length: ', newFeedItems.length)
   newFeedItems.forEach(async (item) => {
     const { title, link, enclosure, pubDate } = item
