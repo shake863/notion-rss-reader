@@ -109866,7 +109866,9 @@ var getNewFeedItems = async (feedUrl) => {
 var import_client = __toESM(require_src(), 1);
 var getFeedUrlList = async () => {
   const notion = new import_client.Client({ auth: process.env.NOTION_KEY });
+  console.log("getFeedUrlList notion_key:", process.env.NOTION_KEY);
   const databaseId = process.env.NOTION_FEEDER_DATABASE_ID || "";
+  console.log("getFeedUrlList databaseId:", databaseId);
   const response = await notion.databases.query({
     database_id: databaseId
   });
@@ -109880,6 +109882,9 @@ var import_ogp_parser = __toESM(require_main(), 1);
 var addFeedItems = async (newFeedItems) => {
   const notion = new import_client2.Client({ auth: process.env.NOTION_KEY });
   const databaseId = process.env.NOTION_READER_DATABASE_ID || "";
+  console.log("addFeedItems notion_key:", process.env.NOTION_KEY);
+  console.log("addFeedItems databaseId:", databaseId);
+  console.log("newFeedItems.length: ", newFeedItems.length);
   newFeedItems.forEach(async (item) => {
     const { title, link, enclosure, pubDate } = item;
     const domain = link?.match(/^https?:\/{2,}(.*?)(?:\/|\?|#|$)/);
@@ -109942,6 +109947,7 @@ var addFeedItems = async (newFeedItems) => {
         properties,
         children: children2
       });
+      console.log(properties.Title);
     } catch (error) {
       console.error(error);
     }
